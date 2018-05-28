@@ -1,3 +1,5 @@
+package Lab1Code;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -7,16 +9,22 @@ public class Lab1 {
         int linesNumber = 0;
         while ( true )
         {
-            System.out.println("Enter the number of lines");
-            Scanner sc1 = new Scanner(System. in );
+            System.out.println("Enter the integer number of lines");
+            Scanner sc1 = new Scanner(System.in);
             try
             {
                 linesNumber = sc1.nextInt();
+                if (linesNumber < 1)
+                    throw new ZeroLinesException();
                 break;
             }
-            catch(InputMismatchException fg)
+            catch(InputMismatchException notInteger)
             {
                 System.out.print("It's not a number. " );
+            }
+            catch (ZeroLinesException lessZero)
+            {
+                System.out.print("Number of lines can't be less than 1. ");
             }
         }
 
@@ -29,8 +37,7 @@ public class Lab1 {
         }
 
         FindMinString lines = new FindMinString(enteredLines);
-        lines.sortLinesByLengthMinToMax();
-        lines.printMinStringAndLength();
+        lines.findAndPrintMinStringAndLength();
 
     }
 }
