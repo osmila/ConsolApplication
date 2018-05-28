@@ -1,17 +1,16 @@
-import org.junit.Before;
+import Lab1Code.FindMinString;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class FindMinStringTest {
 
     @Test
     public void sortLinesByLengthMinToMaxTest (){
         String[] initialValues = new String[] {"123", "12", "g"};
-        String[] sortedValues = new String[] {"g", "12", "123"};
+        String minLengthLine = new String("g");
         FindMinString testSorting = new FindMinString(initialValues);
 
-        assertArrayEquals(sortedValues, testSorting.sortLinesByLengthMinToMax());
+        assertEquals(minLengthLine, testSorting.findAndPrintMinStringAndLength());
     }
-
 }
